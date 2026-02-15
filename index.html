@@ -7,29 +7,47 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <header class="navbar">
-        <div class="header-left">
-            <img src="images/ucmainccslogo.png" alt="CCS Logo" class="logo">
-            <h1 class="system-title">College of Computer Studies Sit-in Monitoring System</h1>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo-section">
+                <img src="images/ucmainccslogo.jpg" alt="CCS Logo" class="navbar-logo">
+                <span class="site-title">College of Computer Studies Sit-in Monitoring System</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html">Community</a>
+                <a href="#about">About</a>
+                <a href="#contact">Login</a>
+                <a href="register.html" class="btn-register">Register</a>
+            </div>
         </div>
+    </nav>
 
-        <nav class="header-right">
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="#">Community <span class="arrow">▼</span></a>
-                    <ul class="dropdown-content">
-                        <li><a href="#">Forum</a></li>
-                        <li><a href="#">Announcements</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Login</a></li>
-                <li><a href="Register.html" class="register-btn">Register</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-left">
+                <h1>Track your attendance easily and efficiently. Stay on top of your academic requirements.</h1>
+                <!-- Important Notice Box -->
+                <div class="notice-box">
+                    <h3>📌 Important Reminder</h3>
+                    <p>Students can only have <strong>30 sit-in sessions per semester</strong></p>
+                </div>
+            </div>
 
+            <div class="hero-right">
+                <div class="hero-image">
+                    <img src="images/landingpage_pic.png" alt="Image" class="image-logo">
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 College of Computer Studies - University of Cebu</p>
+    </footer>
 </body>
 </html>
