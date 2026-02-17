@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Checkbox that controls login modal -->
+    <input type="checkbox" id="login-toggle">
+
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-content">
@@ -18,7 +22,8 @@
                 <a href="index.html">Home</a>
                 <a href="index.html">Community</a>
                 <a href="#about">About</a>
-                <a href="#contact">Login</a>
+                <!-- Login label triggers modal -->
+                <label for="login-toggle" class="nav-login-label">Login</label>
                 <a href="register.html" class="btn-register">Register</a>
             </div>
         </div>
@@ -35,29 +40,37 @@
                 <h1>Create Account</h1>
                 <p class="form-subtitle">Register to access the sit-in monitoring system</p>
 
-                <form id="registerForm" action="submit" method="post">
+                <form id="registerForm" action="/register" method="post">
+
                     <!-- ID Number -->
                     <div class="form-field">
                         <label for="idNumber">ID Number</label>
-                        <input type="text" id="idNumber" name="idNumber" required>
+                        <input type="text" id="idNumber" name="idNumber"
+                               required
+                               placeholder="e.g. 2024-00001">
                     </div>
 
                     <!-- Name Fields -->
                     <div class="form-row">
                         <div class="form-field">
                             <label for="lastName">Last Name</label>
-                            <input type="text" id="lastName" name="lastName" required>
+                            <input type="text" id="lastName" name="lastName"
+                                   required
+                                   placeholder="Last name">
                         </div>
                         <div class="form-field">
                             <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" name="firstName" required>
+                            <input type="text" id="firstName" name="firstName"
+                                   required
+                                   placeholder="First name">
                         </div>
                     </div>
 
                     <!-- Middle Name -->
                     <div class="form-field">
                         <label for="middleName">Middle Name</label>
-                        <input type="text" id="middleName" name="middleName">
+                        <input type="text" id="middleName" name="middleName"
+                               placeholder="Middle name (optional)">
                     </div>
 
                     <!-- Course Level -->
@@ -72,22 +85,30 @@
                         </select>
                     </div>
 
-                    <!-- Password -->
+                    <!-- Password (min 6 characters) -->
                     <div class="form-field">
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="password" required>
+                        <input type="password" id="password" name="password"
+                               required
+                               minlength="6"
+                               placeholder="Minimum 6 characters">
                     </div>
 
-                    <!-- Confirm Password -->
+                    <!-- Confirm Password (min 6 characters) -->
                     <div class="form-field">
                         <label for="confirmPassword">Confirm Password</label>
-                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        <input type="password" id="confirmPassword" name="confirmPassword"
+                               required
+                               minlength="6"
+                               placeholder="Re-enter your password">
                     </div>
 
                     <!-- Email -->
                     <div class="form-field">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email"
+                               required
+                               placeholder="e.g. juan@email.com">
                     </div>
 
                     <!-- Course -->
@@ -105,22 +126,85 @@
                     <!-- Address -->
                     <div class="form-field">
                         <label for="address">Address</label>
-                        <input type="text" id="address" name="address" required>
+                        <input type="text" id="address" name="address"
+                               required
+                               placeholder="Your address">
                     </div>
 
                     <!-- Submit Button -->
                     <button type="submit" class="btn btn-primary btn-full">Register Now</button>
 
                     <!-- Login Link -->
-                    <p class="form-footer">Already have an account? <a href="login.html">Login here</a></p>
+                    <p class="form-footer">Already have an account?
+                        <label for="login-toggle" style="color:#0F3E7D; font-weight:bold; cursor:pointer;">Login here</label>
+                    </p>
                 </form>
             </div>
         </div>
     </main>
 
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <div class="about-left">
+                <h2>About the System</h2>
+                <p>The <strong>CCS Sit-in Monitoring System</strong> is developed for the College of Computer Studies at the University of Cebu. It provides a streamlined way for students and faculty to track laboratory sit-in sessions throughout the semester.</p>
+                <p>The system ensures that students are aware of their sit-in usage and helps administrators efficiently manage laboratory access and attendance records.</p>
+                <p class="about-institution">
+                    <strong>University of Cebu</strong><br>
+                    College of Computer Studies<br>
+                    Sanciangko St, Cebu City
+                </p>
+            </div>
+            <div class="about-right">
+                <img src="images/uclogo.jpg" alt="UC CCS Logo" class="about-photo">
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 College of Computer Studies - University of Cebu</p>
     </footer>
+
+    <!-- Login Modal -->
+    <div class="login-overlay">
+        <div class="login-card">
+
+            <!-- Close button -->
+            <label for="login-toggle" class="modal-close-label">&times;</label>
+
+            <h2>Login</h2>
+            <p class="form-subtitle">Enter your credentials to continue</p>
+
+            <form action="/login" method="post">
+
+                <div class="form-field">
+                    <label for="loginId">ID Number</label>
+                    <input type="text" id="loginId" name="loginId"
+                           required
+                           placeholder="Enter your ID number">
+                </div>
+
+                <div class="form-field">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="loginPassword"
+                           required
+                           minlength="6"
+                           placeholder="Enter your password">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">Login</button>
+
+                <p class="form-footer">Don't have an account?
+                    <label for="login-toggle" style="color:#0F3E7D; font-weight:bold; cursor:pointer;">
+                        <a href="register.html" style="color:#0F3E7D;">Register here</a>
+                    </label>
+                </p>
+
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>
